@@ -211,56 +211,53 @@
   /* SCHEDULE */
   .schedule-section { background: var(--dark2); }
   .schedule-note { font-size: 13px; color: var(--muted); border-left: 3px solid var(--green); padding-left: 16px; margin-bottom: 40px; max-width: 700px; }
-  .schedule-filter { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
-  .filter-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--muted); padding: 8px 20px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
-  .filter-btn:hover, .filter-btn.active { background: var(--green); color: var(--dark); border-color: var(--green); }
   .schedule-legend { display: flex; gap: 24px; margin-bottom: 24px; flex-wrap: wrap; }
   .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
   .legend-dot { width: 12px; height: 12px; border-radius: 2px; }
   .schedule-table-wrap { overflow-x: auto; }
   table.schedule { width: 100%; border-collapse: collapse; font-size: 13px; }
-  table.schedule th { background: rgba(168,214,28,0.12); color: var(--green); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; padding: 10px 14px; text-align: center; border: 1px solid rgba(255,255,255,0.06); white-space: nowrap; }
-  table.schedule th.session-header { background: rgba(168,214,28,0.2); font-size: 14px; }
-  table.schedule th.day-col { background: rgba(255,255,255,0.04); color: var(--white); text-align: left; min-width: 120px; }
-  table.schedule td { padding: 10px 14px; border: 1px solid rgba(255,255,255,0.06); text-align: center; vertical-align: middle; }
-  table.schedule td.day-cell { color: var(--white); font-weight: 600; font-size: 13px; text-align: left; background: rgba(255,255,255,0.02); white-space: nowrap; }
+  table.schedule th { background: rgba(168,214,28,0.12); color: var(--green); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 8px 6px; text-align: center; border: 1px solid rgba(255,255,255,0.06); white-space: nowrap; }
+  table.schedule th.session-header { background: rgba(168,214,28,0.2); font-size: 14px; padding: 10px 14px; letter-spacing: 1.5px; }
+  table.schedule th.day-col { background: rgba(255,255,255,0.04); color: var(--white); text-align: left; min-width: 130px; padding: 10px 14px; font-size: 12px; }
+  table.schedule td { padding: 8px 6px; border: 1px solid rgba(255,255,255,0.06); text-align: center; vertical-align: middle; }
+  table.schedule td.day-cell { color: var(--white); font-weight: 600; font-size: 12px; text-align: left; background: rgba(255,255,255,0.02); white-space: nowrap; padding: 10px 14px; }
   table.schedule td.day-cell .day-name { color: var(--green); font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 900; }
   table.schedule td.yes-open { background: rgba(255,180,0,0.15); }
   table.schedule td.yes-advanced { background: rgba(0,160,120,0.15); }
   table.schedule td.yes-intermediate { background: rgba(80,120,255,0.15); }
-  table.schedule td.yes-open .pill, table.schedule td.yes-advanced .pill, table.schedule td.yes-intermediate .pill { display: inline-block; padding: 2px 10px; border-radius: 2px; font-weight: 700; font-size: 11px; letter-spacing: 1px; }
+  table.schedule td.yes-open .pill, table.schedule td.yes-advanced .pill, table.schedule td.yes-intermediate .pill { display: inline-block; padding: 1px 7px; border-radius: 2px; font-weight: 700; font-size: 10px; letter-spacing: 1px; }
   table.schedule td.yes-open .pill { background: rgba(255,180,0,0.3); color: #ffb400; }
   table.schedule td.yes-advanced .pill { background: rgba(0,160,120,0.3); color: #00c896; }
   table.schedule td.yes-intermediate .pill { background: rgba(80,120,255,0.3); color: #7090ff; }
-  table.schedule tr.highlight-row td { outline: 2px solid var(--green); outline-offset: -2px; }
-  table.schedule tr.dimmed td { opacity: 0.25; }
+  /* Skill-group sub-headers above age columns */
+  table.schedule th.skill-group { font-size: 13px; }
+  table.schedule th.skill-group .skill-rating { font-weight: 400; opacity: 0.6; font-size: 10px; margin-left: 4px; }
+  table.schedule th.skill-open { color: #ffb400; background: rgba(255,180,0,0.1); }
+  table.schedule th.skill-advanced { color: #00c896; background: rgba(0,160,120,0.1); }
+  table.schedule th.skill-intermediate { color: #7090ff; background: rgba(80,120,255,0.1); }
+  /* Filter highlight states */
+  table.schedule.filter-active td:not(.cell-match):not(.day-cell) { opacity: 0.22; transition: opacity 0.2s; }
+  table.schedule td.cell-match { background: rgba(168,214,28,0.22) !important; outline: 2px solid var(--green); outline-offset: -2px; box-shadow: 0 0 0 1px var(--green) inset; transition: background 0.2s, outline-color 0.2s; }
+  table.schedule td.cell-match .pill { background: var(--green) !important; color: var(--dark) !important; }
 
-  /* SCHEDULE PICKER (interactive matrix) */
-  .schedule-picker { background: rgba(255,255,255,0.03); border: 1px solid rgba(168,214,28,0.2); padding: 32px; margin-bottom: 48px; }
-  .picker-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 28px; text-transform: uppercase; letter-spacing: 1px; color: var(--white); margin-bottom: 6px; }
-  .picker-title span { color: var(--green); }
-  .picker-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
-  .picker-row { display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: center; margin-bottom: 14px; }
+  /* SCHEDULE PICKER BAR (combined skill + age filter) */
+  .schedule-picker-bar { background: rgba(255,255,255,0.03); border: 1px solid rgba(168,214,28,0.2); padding: 24px 28px; margin-bottom: 28px; }
+  .picker-row { display: grid; grid-template-columns: 130px 1fr; gap: 18px; align-items: center; margin-bottom: 12px; }
+  .picker-row:last-child { margin-bottom: 0; }
   .picker-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green); }
-  .picker-options { display: flex; gap: 10px; flex-wrap: wrap; }
-  .picker-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 10px 20px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
+  .picker-options { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .picker-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 9px 18px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
   .picker-btn .skill-dot { width: 10px; height: 10px; border-radius: 2px; }
   .picker-btn .picker-sublabel { font-weight: 400; opacity: 0.55; font-size: 11px; }
   .picker-btn:hover { border-color: var(--green); color: var(--green); }
   .picker-btn.active { background: var(--green); color: var(--dark); border-color: var(--green); }
   .picker-btn.active .picker-sublabel { opacity: 0.75; color: var(--dark); }
-  .picker-result { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
-  .picker-empty { font-size: 14px; color: var(--muted); text-align: center; padding: 16px 0; }
-  .picker-summary { font-size: 15px; color: var(--white); margin-bottom: 20px; line-height: 1.6; }
-  .picker-summary strong { color: var(--green); font-family: 'Barlow Condensed', sans-serif; font-size: 20px; letter-spacing: 1px; }
-  .match-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-  .match-card { background: rgba(168,214,28,0.06); border-left: 3px solid var(--green); padding: 16px 20px; transition: background 0.2s; }
-  .match-card:hover { background: rgba(168,214,28,0.1); }
-  .match-card-day { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 20px; color: var(--green); text-transform: uppercase; letter-spacing: 1px; }
-  .match-card-date { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .match-card-event { font-size: 15px; color: var(--white); font-weight: 600; margin-top: 10px; }
-  .match-card-session { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 6px; font-weight: 700; }
-  .no-matches { background: rgba(255,255,255,0.03); border-left: 3px solid var(--muted); padding: 20px; font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .picker-reset { background: transparent; border: 1px solid rgba(255,255,255,0.15); color: var(--muted); margin-left: auto; padding: 9px 18px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+  .picker-reset:hover { border-color: var(--green); color: var(--green); }
+  .picker-status { margin-top: 14px; font-size: 13px; color: var(--muted); padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); display: none; }
+  .picker-status.visible { display: block; }
+  .picker-status strong { color: var(--green); font-family: 'Barlow Condensed', sans-serif; font-size: 16px; letter-spacing: 1px; }
+  .picker-status.no-matches strong { color: #ff8080; }
 
   .arrival-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; }
   .arrival-card { background: rgba(168,214,28,0.06); border: 1px solid rgba(168,214,28,0.2); padding: 24px 28px; }
@@ -319,18 +316,17 @@
 
   /* SCHEDULE */
   .schedule-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  table.schedule { min-width: 700px; font-size: 11px; }
-  table.schedule th, table.schedule td { padding: 8px 8px; }
+  table.schedule { min-width: 1200px; font-size: 10px; }
+  table.schedule th, table.schedule td { padding: 6px 4px; }
+  table.schedule th.session-header, table.schedule td.day-cell, table.schedule th.day-col { padding: 8px 10px; }
+  table.schedule .pill { padding: 1px 5px !important; font-size: 9px !important; }
   .tournament-dates { grid-template-columns: 1fr; }
   .arrival-cards { grid-template-columns: 1fr; }
-  .schedule-filter { gap: 8px; }
-  .filter-btn { padding: 6px 14px; font-size: 12px; }
-  .schedule-picker { padding: 20px; }
-  .picker-title { font-size: 22px; }
-  .picker-row { grid-template-columns: 1fr; gap: 8px; margin-bottom: 18px; }
+  .schedule-picker-bar { padding: 18px; }
+  .picker-row { grid-template-columns: 1fr; gap: 6px; margin-bottom: 14px; }
   .picker-options { gap: 8px; }
-  .picker-btn { padding: 8px 14px; font-size: 12px; flex: 1 1 auto; justify-content: center; }
-  .match-cards { grid-template-columns: 1fr; }
+  .picker-btn { padding: 8px 12px; font-size: 12px; flex: 1 1 auto; justify-content: center; }
+  .picker-reset { margin-left: 0; flex: 1 1 100%; padding: 8px 12px; font-size: 12px; text-align: center; }
 
   /* HOTELS */
   .hotels-grid { grid-template-columns: 1fr; }
@@ -484,43 +480,27 @@ html, body {
     Schedule is subject to change. We recommend arriving one day before your first match and departing one day after your last match.
   </div>
 
-  <!-- Interactive Picker -->
-  <div class="schedule-picker">
-    <div class="picker-title">Find <span>Your Matches</span></div>
-    <div class="picker-sub">Pick your skill level and age class to see exactly which days and sessions you play.</div>
-
+  <!-- Picker Bar: Skill Level + Age Class -->
+  <div class="schedule-picker-bar">
     <div class="picker-row">
       <div class="picker-label">Skill Level</div>
-      <div class="picker-options" data-group="skill">
+      <div class="picker-options">
         <button type="button" class="picker-btn" data-skill="Open"><span class="skill-dot" style="background:#ffb400;"></span>Open <span class="picker-sublabel">5.0</span></button>
         <button type="button" class="picker-btn" data-skill="Advanced"><span class="skill-dot" style="background:#00c896;"></span>Advanced <span class="picker-sublabel">4.5</span></button>
         <button type="button" class="picker-btn" data-skill="Intermediate"><span class="skill-dot" style="background:#7090ff;"></span>Intermediate <span class="picker-sublabel">3.5</span></button>
       </div>
     </div>
-
     <div class="picker-row">
       <div class="picker-label">Age Class</div>
-      <div class="picker-options" data-group="age">
+      <div class="picker-options">
         <button type="button" class="picker-btn" data-age="19">+19</button>
         <button type="button" class="picker-btn" data-age="35">+35</button>
         <button type="button" class="picker-btn" data-age="50">+50</button>
         <button type="button" class="picker-btn" data-age="60">+60</button>
+        <button type="button" class="picker-reset" id="picker-reset">Reset</button>
       </div>
     </div>
-
-    <div class="picker-result" id="picker-result">
-      <div class="picker-empty">Select a skill level and an age class to see your personal schedule.</div>
-    </div>
-  </div>
-
-  <!-- Filter -->
-  <div class="schedule-filter">
-    <div style="font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted); padding: 8px 0; align-self:center;">Highlight my category:</div>
-    <button class="filter-btn" onclick="filterSchedule('all')">All</button>
-    <button class="filter-btn" onclick="filterSchedule('50')">+50</button>
-    <button class="filter-btn" onclick="filterSchedule('60')">+60</button>
-    <button class="filter-btn" onclick="filterSchedule('19')">+19</button>
-    <button class="filter-btn" onclick="filterSchedule('35')">+35</button>
+    <div class="picker-status" id="picker-status"></div>
   </div>
 
   <!-- Legend -->
@@ -534,100 +514,81 @@ html, body {
   <table class="schedule">
     <thead>
       <tr>
-        <th class="day-col" rowspan="2">Date</th>
-        <th class="session-header" colspan="6">SESSION 1 — Morning</th>
-        <th class="session-header" colspan="6">SESSION 2 — Afternoon</th>
+        <th class="day-col" rowspan="3">Date / Event</th>
+        <th class="session-header" colspan="12">SESSION 1 — Morning</th>
+        <th class="session-header" colspan="12">SESSION 2 — Afternoon</th>
       </tr>
       <tr>
-        <th>Open<br><span style="font-weight:400;font-size:10px;">5.0 · +50</span></th>
-        <th>Open<br><span style="font-weight:400;font-size:10px;">5.0 · +60</span></th>
-        <th>Advanced<br><span style="font-weight:400;font-size:10px;">4.5 · +50</span></th>
-        <th>Advanced<br><span style="font-weight:400;font-size:10px;">4.5 · +60</span></th>
-        <th>Interm.<br><span style="font-weight:400;font-size:10px;">3.5 · +50</span></th>
-        <th>Interm.<br><span style="font-weight:400;font-size:10px;">3.5 · +60</span></th>
-        <th>Open<br><span style="font-weight:400;font-size:10px;">5.0 · +50</span></th>
-        <th>Open<br><span style="font-weight:400;font-size:10px;">5.0 · +60</span></th>
-        <th>Advanced<br><span style="font-weight:400;font-size:10px;">4.5 · +50</span></th>
-        <th>Advanced<br><span style="font-weight:400;font-size:10px;">4.5 · +60</span></th>
-        <th>Interm.<br><span style="font-weight:400;font-size:10px;">3.5 · +50</span></th>
-        <th>Interm.<br><span style="font-weight:400;font-size:10px;">3.5 · +60</span></th>
+        <th class="skill-group skill-open" colspan="4">Open <span class="skill-rating">5.0</span></th>
+        <th class="skill-group skill-advanced" colspan="4">Advanced <span class="skill-rating">4.5</span></th>
+        <th class="skill-group skill-intermediate" colspan="4">Intermediate <span class="skill-rating">3.5</span></th>
+        <th class="skill-group skill-open" colspan="4">Open <span class="skill-rating">5.0</span></th>
+        <th class="skill-group skill-advanced" colspan="4">Advanced <span class="skill-rating">4.5</span></th>
+        <th class="skill-group skill-intermediate" colspan="4">Intermediate <span class="skill-rating">3.5</span></th>
+      </tr>
+      <tr>
+        <th>+19</th><th>+35</th><th>+50</th><th>+60</th>
+        <th>+19</th><th>+35</th><th>+50</th><th>+60</th>
+        <th>+19</th><th>+35</th><th>+50</th><th>+60</th>
+        <th>+19</th><th>+35</th><th>+50</th><th>+60</th>
+        <th>+19</th><th>+35</th><th>+50</th><th>+60</th>
+        <th>+19</th><th>+35</th><th>+50</th><th>+60</th>
       </tr>
     </thead>
     <tbody>
-      <tr data-age="50 60">
-        <td class="day-cell"><div class="day-name">WED 01</div>July 2026</td>
-        <td class="yes-open"><span class="pill">YES</span></td>
-        <td></td>
-        <td class="yes-advanced"><span class="pill">YES</span></td>
-        <td></td>
-        <td class="yes-intermediate"><span class="pill">YES</span></td>
-        <td></td>
-        <td></td>
-        <td class="yes-open"><span class="pill">YES</span></td>
-        <td></td>
-        <td class="yes-advanced"><span class="pill">YES</span></td>
-        <td></td>
-        <td class="yes-intermediate"><span class="pill">YES</span></td>
+      <tr>
+        <td class="day-cell"><div class="day-name">WED 01</div>1 July 2026<div style="font-size:10px;color:var(--green);margin-top:2px;">Men's &amp; Women's Doubles</div></td>
+        <td></td><td></td><td class="yes-open" data-skill="Open" data-age="50"><span class="pill">YES</span></td><td></td>
+        <td></td><td></td><td></td><td class="yes-advanced" data-skill="Advanced" data-age="60"><span class="pill">YES</span></td>
+        <td></td><td></td><td class="yes-intermediate" data-skill="Intermediate" data-age="50"><span class="pill">YES</span></td><td></td>
+        <td></td><td></td><td></td><td class="yes-open" data-skill="Open" data-age="60"><span class="pill">YES</span></td>
+        <td></td><td></td><td class="yes-advanced" data-skill="Advanced" data-age="50"><span class="pill">YES</span></td><td></td>
+        <td></td><td></td><td></td><td class="yes-intermediate" data-skill="Intermediate" data-age="60"><span class="pill">YES</span></td>
       </tr>
-      <tr data-age="50 60">
-        <td class="day-cell"><div class="day-name">THU 02</div>July 2026</td>
-        <td></td>
-        <td class="yes-open"><span class="pill">YES</span></td>
-        <td></td>
-        <td class="yes-advanced"><span class="pill">YES</span></td>
-        <td></td>
-        <td class="yes-intermediate"><span class="pill">YES</span></td>
-        <td class="yes-open"><span class="pill">YES</span></td>
-        <td></td>
-        <td class="yes-advanced"><span class="pill">YES</span></td>
-        <td></td>
-        <td class="yes-intermediate"><span class="pill">YES</span></td>
-        <td></td>
+      <tr>
+        <td class="day-cell"><div class="day-name">THU 02</div>2 July 2026<div style="font-size:10px;color:var(--green);margin-top:2px;">Men's &amp; Women's Singles</div></td>
+        <td></td><td></td><td class="yes-open" data-skill="Open" data-age="50"><span class="pill">YES</span></td><td></td>
+        <td></td><td></td><td></td><td class="yes-advanced" data-skill="Advanced" data-age="60"><span class="pill">YES</span></td>
+        <td></td><td></td><td class="yes-intermediate" data-skill="Intermediate" data-age="50"><span class="pill">YES</span></td><td></td>
+        <td></td><td></td><td></td><td class="yes-open" data-skill="Open" data-age="60"><span class="pill">YES</span></td>
+        <td></td><td></td><td class="yes-advanced" data-skill="Advanced" data-age="50"><span class="pill">YES</span></td><td></td>
+        <td></td><td></td><td></td><td class="yes-intermediate" data-skill="Intermediate" data-age="60"><span class="pill">YES</span></td>
       </tr>
-      <tr data-age="50 60 19 35">
-        <td class="day-cell"><div class="day-name">FRI 03</div>July 2026 <div style="font-size:10px;color:var(--green);margin-top:2px;">Both Groups</div></td>
-        <td class="yes-open"><span class="pill">YES</span></td>
-        <td class="yes-open"><span class="pill">YES</span></td>
-        <td class="yes-advanced"><span class="pill">YES</span></td>
-        <td class="yes-advanced"><span class="pill">YES</span></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="yes-intermediate"><span class="pill">YES</span></td>
-        <td class="yes-intermediate"><span class="pill">YES</span></td>
+      <tr>
+        <td class="day-cell"><div class="day-name">FRI 03</div>3 July 2026<div style="font-size:10px;color:var(--green);margin-top:2px;">Mixed Doubles</div></td>
+        <td class="yes-open" data-skill="Open" data-age="19"><span class="pill">YES</span></td><td></td><td class="yes-open" data-skill="Open" data-age="50"><span class="pill">YES</span></td><td></td>
+        <td></td><td class="yes-advanced" data-skill="Advanced" data-age="35"><span class="pill">YES</span></td><td></td><td class="yes-advanced" data-skill="Advanced" data-age="60"><span class="pill">YES</span></td>
+        <td class="yes-intermediate" data-skill="Intermediate" data-age="19"><span class="pill">YES</span></td><td></td><td class="yes-intermediate" data-skill="Intermediate" data-age="50"><span class="pill">YES</span></td><td></td>
+        <td></td><td class="yes-open" data-skill="Open" data-age="35"><span class="pill">YES</span></td><td></td><td class="yes-open" data-skill="Open" data-age="60"><span class="pill">YES</span></td>
+        <td class="yes-advanced" data-skill="Advanced" data-age="19"><span class="pill">YES</span></td><td></td><td class="yes-advanced" data-skill="Advanced" data-age="50"><span class="pill">YES</span></td><td></td>
+        <td></td><td class="yes-intermediate" data-skill="Intermediate" data-age="35"><span class="pill">YES</span></td><td></td><td class="yes-intermediate" data-skill="Intermediate" data-age="60"><span class="pill">YES</span></td>
       </tr>
-      <tr data-age="19 35">
-        <td class="day-cell"><div class="day-name">SAT 04</div>July 2026</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="yes-open"><span class="pill">YES</span></td>
-        <td></td>
-        <td class="yes-advanced"><span class="pill">YES</span></td>
-        <td></td>
-        <td class="yes-intermediate"><span class="pill">YES</span></td>
-        <td></td>
+      <tr>
+        <td class="day-cell"><div class="day-name">FRI 03</div>3 July 2026<div style="font-size:10px;color:var(--green);margin-top:2px;">Men's Singles</div></td>
+        <td class="yes-open" data-skill="Open" data-age="19"><span class="pill">YES</span></td><td></td><td></td><td></td>
+        <td></td><td class="yes-advanced" data-skill="Advanced" data-age="35"><span class="pill">YES</span></td><td></td><td></td>
+        <td class="yes-intermediate" data-skill="Intermediate" data-age="19"><span class="pill">YES</span></td><td></td><td></td><td></td>
+        <td></td><td class="yes-open" data-skill="Open" data-age="35"><span class="pill">YES</span></td><td></td><td></td>
+        <td class="yes-advanced" data-skill="Advanced" data-age="19"><span class="pill">YES</span></td><td></td><td></td><td></td>
+        <td></td><td class="yes-intermediate" data-skill="Intermediate" data-age="35"><span class="pill">YES</span></td><td></td><td></td>
       </tr>
-      <tr data-age="19 35">
-        <td class="day-cell"><div class="day-name">SUN 05</div>July 2026</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="yes-advanced"><span class="pill">YES</span></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr>
+        <td class="day-cell"><div class="day-name">SAT 04</div>4 July 2026<div style="font-size:10px;color:var(--green);margin-top:2px;">Women's Singles</div></td>
+        <td class="yes-open" data-skill="Open" data-age="19"><span class="pill">YES</span></td><td></td><td></td><td></td>
+        <td></td><td class="yes-advanced" data-skill="Advanced" data-age="35"><span class="pill">YES</span></td><td></td><td></td>
+        <td class="yes-intermediate" data-skill="Intermediate" data-age="19"><span class="pill">YES</span></td><td></td><td></td><td></td>
+        <td></td><td class="yes-open" data-skill="Open" data-age="35"><span class="pill">YES</span></td><td></td><td></td>
+        <td class="yes-advanced" data-skill="Advanced" data-age="19"><span class="pill">YES</span></td><td></td><td></td><td></td>
+        <td></td><td class="yes-intermediate" data-skill="Intermediate" data-age="35"><span class="pill">YES</span></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td class="day-cell"><div class="day-name">SUN 05</div>5 July 2026<div style="font-size:10px;color:var(--green);margin-top:2px;">Men's &amp; Women's Doubles</div></td>
+        <td class="yes-open" data-skill="Open" data-age="19"><span class="pill">YES</span></td><td></td><td></td><td></td>
+        <td></td><td class="yes-advanced" data-skill="Advanced" data-age="35"><span class="pill">YES</span></td><td></td><td></td>
+        <td class="yes-intermediate" data-skill="Intermediate" data-age="19"><span class="pill">YES</span></td><td></td><td></td><td></td>
+        <td></td><td class="yes-open" data-skill="Open" data-age="35"><span class="pill">YES</span></td><td></td><td></td>
+        <td class="yes-advanced" data-skill="Advanced" data-age="19"><span class="pill">YES</span></td><td></td><td></td><td></td>
+        <td></td><td class="yes-intermediate" data-skill="Intermediate" data-age="35"><span class="pill">YES</span></td><td></td><td></td>
       </tr>
     </tbody>
   </table>
@@ -649,50 +610,17 @@ html, body {
 </section>
 
 <script>
-function filterSchedule(age) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  const rows = document.querySelectorAll('table.schedule tbody tr');
-  rows.forEach(row => {
-    if (age === 'all') {
-      row.classList.remove('highlight-row', 'dimmed');
-    } else {
-      const ages = row.getAttribute('data-age') || '';
-      if (ages.includes(age)) {
-        row.classList.add('highlight-row');
-        row.classList.remove('dimmed');
-      } else {
-        row.classList.add('dimmed');
-        row.classList.remove('highlight-row');
-      }
-    }
-  });
-}
-
-// Interactive Schedule Picker
-const tournamentSchedule = [
-  { dayShort: 'WED 01', dateFull: '1 July 2026', event: "Men's & Women's Doubles", session: 1, sessionLabel: 'Session 1 — Morning', slots: [['Open','50'],['Advanced','60'],['Intermediate','50']] },
-  { dayShort: 'WED 01', dateFull: '1 July 2026', event: "Men's & Women's Doubles", session: 2, sessionLabel: 'Session 2 — Afternoon', slots: [['Open','60'],['Advanced','50'],['Intermediate','60']] },
-  { dayShort: 'THU 02', dateFull: '2 July 2026', event: "Men's & Women's Singles", session: 1, sessionLabel: 'Session 1 — Morning', slots: [['Open','50'],['Advanced','60'],['Intermediate','50']] },
-  { dayShort: 'THU 02', dateFull: '2 July 2026', event: "Men's & Women's Singles", session: 2, sessionLabel: 'Session 2 — Afternoon', slots: [['Open','60'],['Advanced','50'],['Intermediate','60']] },
-  { dayShort: 'FRI 03', dateFull: '3 July 2026', event: "Mixed Doubles", session: 1, sessionLabel: 'Session 1 — Morning', slots: [['Open','19'],['Open','50'],['Advanced','35'],['Advanced','60'],['Intermediate','19'],['Intermediate','50']] },
-  { dayShort: 'FRI 03', dateFull: '3 July 2026', event: "Mixed Doubles", session: 2, sessionLabel: 'Session 2 — Afternoon', slots: [['Open','35'],['Open','60'],['Advanced','19'],['Advanced','50'],['Intermediate','35'],['Intermediate','60']] },
-  { dayShort: 'FRI 03', dateFull: '3 July 2026', event: "Men's Singles", session: 1, sessionLabel: 'Session 1 — Morning', slots: [['Open','19'],['Advanced','35'],['Intermediate','19']] },
-  { dayShort: 'FRI 03', dateFull: '3 July 2026', event: "Men's Singles", session: 2, sessionLabel: 'Session 2 — Afternoon', slots: [['Open','35'],['Advanced','19'],['Intermediate','35']] },
-  { dayShort: 'SAT 04', dateFull: '4 July 2026', event: "Women's Singles", session: 1, sessionLabel: 'Session 1 — Morning', slots: [['Open','19'],['Advanced','35'],['Intermediate','19']] },
-  { dayShort: 'SAT 04', dateFull: '4 July 2026', event: "Women's Singles", session: 2, sessionLabel: 'Session 2 — Afternoon', slots: [['Open','35'],['Advanced','19'],['Intermediate','35']] },
-  { dayShort: 'SUN 05', dateFull: '5 July 2026', event: "Men's & Women's Doubles", session: 1, sessionLabel: 'Session 1 — Morning', slots: [['Open','19'],['Advanced','35'],['Intermediate','19']] },
-  { dayShort: 'SUN 05', dateFull: '5 July 2026', event: "Men's & Women's Doubles", session: 2, sessionLabel: 'Session 2 — Afternoon', slots: [['Open','35'],['Advanced','19'],['Intermediate','35']] }
-];
-
-const pickerSelection = { skill: null, age: null };
+// Schedule Picker — combined Skill Level + Age Class filter
+const scheduleFilter = { skill: null, age: null };
+const scheduleTable = document.querySelector('table.schedule');
+const scheduleStatus = document.getElementById('picker-status');
 
 document.querySelectorAll('.picker-btn[data-skill]').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.picker-btn[data-skill]').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    pickerSelection.skill = btn.dataset.skill;
-    updatePickerResult();
+    scheduleFilter.skill = btn.dataset.skill;
+    applyScheduleFilter();
   });
 });
 
@@ -700,37 +628,44 @@ document.querySelectorAll('.picker-btn[data-age]').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.picker-btn[data-age]').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    pickerSelection.age = btn.dataset.age;
-    updatePickerResult();
+    scheduleFilter.age = btn.dataset.age;
+    applyScheduleFilter();
   });
 });
 
-function updatePickerResult() {
-  const result = document.getElementById('picker-result');
-  const { skill, age } = pickerSelection;
+document.getElementById('picker-reset').addEventListener('click', () => {
+  scheduleFilter.skill = null;
+  scheduleFilter.age = null;
+  document.querySelectorAll('.picker-btn').forEach(b => b.classList.remove('active'));
+  applyScheduleFilter();
+});
+
+function applyScheduleFilter() {
+  const { skill, age } = scheduleFilter;
+  scheduleTable.querySelectorAll('td.cell-match').forEach(c => c.classList.remove('cell-match'));
+
   if (!skill || !age) {
-    result.innerHTML = '<div class="picker-empty">Select a skill level and an age class to see your personal schedule.</div>';
+    scheduleTable.classList.remove('filter-active');
+    scheduleStatus.classList.remove('visible', 'no-matches');
+    scheduleStatus.innerHTML = '';
     return;
   }
-  const matches = tournamentSchedule.filter(ev =>
-    ev.slots.some(s => s[0] === skill && s[1] === age)
+
+  scheduleTable.classList.add('filter-active');
+  const matches = scheduleTable.querySelectorAll(
+    'tbody td[data-skill="' + skill + '"][data-age="' + age + '"]'
   );
+  matches.forEach(c => c.classList.add('cell-match'));
+
+  scheduleStatus.classList.add('visible');
   if (matches.length === 0) {
-    result.innerHTML = '<div class="no-matches">No matches scheduled for <strong>' + skill + ' +' + age + '</strong>. This category is not offered in 2026 — please choose a different combination or contact us.</div>';
-    return;
+    scheduleStatus.classList.add('no-matches');
+    scheduleStatus.innerHTML = 'No sessions scheduled for <strong>' + skill + ' +' + age + '</strong>. Please pick a different combination.';
+  } else {
+    scheduleStatus.classList.remove('no-matches');
+    const noun = matches.length === 1 ? 'session' : 'sessions';
+    scheduleStatus.innerHTML = 'As <strong>' + skill + ' +' + age + '</strong> you play in <strong>' + matches.length + '</strong> ' + noun + '.';
   }
-  const cardsHtml = matches.map(m =>
-    '<div class="match-card">' +
-      '<div class="match-card-day">' + m.dayShort + '</div>' +
-      '<div class="match-card-date">' + m.dateFull + '</div>' +
-      '<div class="match-card-event">' + m.event + '</div>' +
-      '<div class="match-card-session">' + m.sessionLabel + '</div>' +
-    '</div>'
-  ).join('');
-  const noun = matches.length === 1 ? 'session' : 'sessions';
-  result.innerHTML =
-    '<div class="picker-summary">As <strong>' + skill + ' +' + age + '</strong>, you play in <strong>' + matches.length + '</strong> ' + noun + ' across the tournament.</div>' +
-    '<div class="match-cards">' + cardsHtml + '</div>';
 }
 </script>
 
