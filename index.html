@@ -644,7 +644,7 @@ function applyScheduleFilter() {
   const { skill, age } = scheduleFilter;
   scheduleTable.querySelectorAll('td.cell-match').forEach(c => c.classList.remove('cell-match'));
 
-  if (!skill || !age) {
+  if (!skill && !age) {
     scheduleTable.classList.remove('filter-active');
     scheduleStatus.classList.remove('visible', 'no-matches');
     scheduleStatus.innerHTML = '';
@@ -652,19 +652,25 @@ function applyScheduleFilter() {
   }
 
   scheduleTable.classList.add('filter-active');
-  const matches = scheduleTable.querySelectorAll(
-    'tbody td[data-skill="' + skill + '"][data-age="' + age + '"]'
-  );
+  let selector = 'tbody td';
+  if (skill) selector += '[data-skill="' + skill + '"]';
+  if (age) selector += '[data-age="' + age + '"]';
+  const matches = scheduleTable.querySelectorAll(selector);
   matches.forEach(c => c.classList.add('cell-match'));
+
+  let label;
+  if (skill && age) label = 'As <strong>' + skill + ' +' + age + '</strong>';
+  else if (skill) label = 'As <strong>' + skill + '</strong>';
+  else label = 'In <strong>+' + age + '</strong>';
 
   scheduleStatus.classList.add('visible');
   if (matches.length === 0) {
     scheduleStatus.classList.add('no-matches');
-    scheduleStatus.innerHTML = 'No sessions scheduled for <strong>' + skill + ' +' + age + '</strong>. Please pick a different combination.';
+    scheduleStatus.innerHTML = 'No sessions found ' + label.replace('As ', 'for ').replace('In ', 'in ') + '. Please pick a different combination.';
   } else {
     scheduleStatus.classList.remove('no-matches');
     const noun = matches.length === 1 ? 'session' : 'sessions';
-    scheduleStatus.innerHTML = 'As <strong>' + skill + ' +' + age + '</strong> you play in <strong>' + matches.length + '</strong> ' + noun + '.';
+    scheduleStatus.innerHTML = label + ' you play in <strong>' + matches.length + '</strong> ' + noun + '.';
   }
 }
 </script>
